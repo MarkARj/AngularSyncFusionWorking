@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Grid } from '@syncfusion/ej2-grids';
+import { Http, ResponseType } from '@angular/http';
+import {map, tap} from 'rxjs/operators';
+import { config } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +11,19 @@ import { Grid } from '@syncfusion/ej2-grids';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+
+  private apiUrl='https://joke-api-strict-cors.appspot.com/jokes/random';
+  testdata:any={};
+
+  constructor(private http:Http)
+  {
+    console.log('Hello Fellow User');
+    this.getData();
+  }
+  getData() {
+    return console.log(this.http.get(this.apiUrl));
+  
+  }
   ngOnInit(): void {
     throw new Error("Method not implemented.");
   }
