@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { GridModule, PagerModule } from '@syncfusion/ej2-angular-grids';
-import {map} from 'rxjs/operators';
 
 @NgModule({
   declarations: [
@@ -11,7 +10,7 @@ import {map} from 'rxjs/operators';
   ],
   imports: [
     BrowserModule,
-    GridModule, PagerModule,HttpModule
+    GridModule, PagerModule,HttpClientModule
   ],
   providers: [AppComponent],
   bootstrap: [AppComponent]

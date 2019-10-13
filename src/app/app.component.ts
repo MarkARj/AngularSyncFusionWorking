@@ -1,8 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 import { Grid } from '@syncfusion/ej2-grids';
-import { Http, ResponseType } from '@angular/http';
-import {map, tap} from 'rxjs/operators';
-import { config } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -10,22 +8,15 @@ import { config } from 'rxjs';
   //templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
 
-  private apiUrl='https://joke-api-strict-cors.appspot.com/jokes/random';
-  testdata:any={};
-
-  constructor(private http:Http)
+  constructor(private http:HttpClient)
   {
-    console.log('Hello Fellow User');
-    this.getData();
+    console.log('Testing');
   }
-  getData() {
-    return console.log(this.http.get(this.apiUrl));
-  
-  }
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
+  ngOnInit() {
+    let obs=this.http.get('https://api.github.com/users/MarkARj');
+    obs.subscribe((response)=>{console.log(response)});
   }
   
   @ViewChild('grid',{static:false})
