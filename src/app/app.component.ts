@@ -15,7 +15,7 @@ export class AppComponent {
     console.log('Testing');
   }
   ngOnInit() {
-    let obs=this.http.get('https://api.github.com/users/MarkARj');
+    let obs=this.http.get('https://localhost:44368/api/values');
     obs.subscribe((response)=>{console.log(response)});
   }
   
